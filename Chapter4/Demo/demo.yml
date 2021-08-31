@@ -2,7 +2,9 @@
 - name: Demonstrate Variables and Filters to Process Variables
   hosts: localhost
   gather_facts: no
-  vars_files: vars.yml
+  vars_files: 
+    - vars.yml
+    - vars_list.yml
   tasks:
 
   ## Output the Value of Variables
@@ -55,3 +57,37 @@
     - name: Pause for effect and explanation
       pause:
         prompt: "Discuss output and then hit Enter"        
+
+### Sorting and manipulation
+#
+    - name: Output values of demo_list
+      debug:
+        msg: The value of demo_list is {{ demo_list }}
+
+    - name: Pause for effect and explanation
+      pause:
+        prompt: "Discuss output and then hit Enter"        
+
+    - name: Output values of demo_list without duplicates
+      debug:
+        msg: The value of demo_list without duplicates is {{ demo_list | unique }}
+
+    - name: Pause for effect and explanation
+      pause:
+        prompt: "Discuss output and then hit Enter"
+
+    - name: Output values of demo_list sorted
+      debug:
+        msg: The value of demo_list sorted is {{ demo_list | sort }}
+
+    - name: Pause for effect and explanation
+      pause:
+        prompt: "Discuss output and then hit Enter"
+
+    - name: Output values of demo_list sorted and unique
+      debug:
+        msg: The value of demo_list sorted and without duplicates is {{ demo_list | sort | unique }}
+
+    - name: Pause for effect and explanation
+      pause:
+        prompt: "Discuss output and then hit Enter"
