@@ -5,6 +5,16 @@
   gather_facts: False
 
   tasks:
+
+    - name: Ensure the services are enabled
+      service:
+        name: "{{ item }}"
+        state: stopped
+        enabled: False
+      loop:
+        - httpd
+        - mariadb
+
     - name: Ensure the packages are removed
       yum:
         name:
