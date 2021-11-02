@@ -12,3 +12,10 @@
       tags:
         - tests
         - demo
+
+    - name: Demo for RHU
+      debug:
+        msg: This is a demo for RHU on tagging.
+      tags:
+        - rhu
+        - demo
